@@ -1,0 +1,25 @@
+
+---
+
+### `.gitignore`
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+.env
+
+# Data files
+data/*.csv
+
+# Logs
+*.log
