@@ -22,7 +22,7 @@ class FinancialDataAnalyzer:
     def load_data(self, table='prices', start_date='2015-01-01'):
         
         query = f"SELECT * FROM {table};"
-        self.df = pd.read_sql(query, self.engine)
+        self.df = pd.read_sql(query, self.engine).dropna()
         
         self.df['date'] = pd.to_datetime(self.df['date'])
          
@@ -197,7 +197,7 @@ class FinancialDataAnalyzer:
         plt.show()
 if __name__ == "__main__":
     db_password = os.getenv("db_password")
-    db_url = 'postgresql://postgres:********@localhost:5432/finance_data'
+    db_url = 'postgresql://postgres:*********@localhost:5432/finance_data'
     analyzer = FinancialDataAnalyzer(db_url)
     analyzer.load_data()
     analyzer.calculate_monthly_return()
